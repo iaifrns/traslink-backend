@@ -7,6 +7,8 @@ import { Enterprise } from './enterprises/entities/enterprise.entity';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { Users } from './users/entities/user.entity';
+import { PositionModule } from './position/position.module';
+import { Positions } from './position/entities/position.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -16,8 +18,8 @@ import { Users } from './users/entities/user.entity';
     database: 'translink',
     synchronize: true,
     host: 'localhost',
-    entities: [Enterprise, Users]
-  }),EnterprisesModule, UsersModule, AuthModule],
+    entities: [Enterprise, Users, Positions]
+  }),EnterprisesModule, UsersModule, AuthModule, PositionModule],
   controllers: [AppController],
   providers: [AppService],
 })
