@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Positions } from "src/position/entities/position.entity";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Users{
@@ -12,6 +13,9 @@ export class Users{
     password: string;
     @Column()
     enterpriseCode: number;
-    @Column()
-    positionId: string;
+    @Column({default: true})
+    active: true
+    @ManyToOne(()=>Positions, (position)=>position.users, {eager: true})
+    @JoinColumn({name: "positionId"})
+    position: Positions
 }

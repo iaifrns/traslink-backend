@@ -9,7 +9,7 @@ export class AuthController {
   async login(@Body() data: { username: string; password: string }) {
     const user = await this.authService.validateUser(data);
     if (user) {
-      const token = this.authService.login(user);
+      const token = this.authService.login({username: user.username, id: user.id});
       return { ...user, ...token };
     }
 
