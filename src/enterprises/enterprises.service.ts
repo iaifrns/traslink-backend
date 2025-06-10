@@ -25,8 +25,9 @@ export class EnterprisesService {
   create(input: string) {
     const currentDate = Date.now();
     const hash = currentDate / 1000000;
-    const code = hash.toString().padStart(6, '0');
+    const code = hash.toString().split('.')[1];
 
+    console.log(code)
     const enterpise: CreateEnterprise = {
       enterpriseName: input,
       enterpriseCode: parseInt(code),

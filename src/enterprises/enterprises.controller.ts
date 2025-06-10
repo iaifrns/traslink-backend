@@ -23,6 +23,7 @@ export class EnterprisesController {
 
     @Post()
     create(@Body() input: {enterpriseName: string}){
+        console.log(input)
         return this.enterpriseService.create(input.enterpriseName)
     }
 
