@@ -27,7 +27,7 @@ export class EnterprisesService {
     const hash = currentDate / 1000000;
     const code = hash.toString().split('.')[1];
 
-    console.log(code)
+    console.log(code);
     const enterpise: CreateEnterprise = {
       enterpriseName: input,
       enterpriseCode: parseInt(code),
@@ -39,6 +39,6 @@ export class EnterprisesService {
   }
 
   update(enterprise: Enterprise) {
-    this.enterpiseRepo.save(enterprise);
+    return this.enterpiseRepo.save(enterprise);
   }
 }

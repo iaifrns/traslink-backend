@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { EnterprisesService } from './enterprises.service';
 import { Enterprise } from './entities/enterprise.entity';
 
@@ -27,7 +27,7 @@ export class EnterprisesController {
         return this.enterpriseService.create(input.enterpriseName)
     }
 
-    @Post("/update")
+    @Put("/update")
     update(@Body() enterprise: Enterprise){
         return this.enterpriseService.update(enterprise)
     }
